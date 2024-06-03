@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <a href="{% url 'blogs:create' %}">Create new blog</a>
+
+    {% for blog in object_list %}
+    <div style="border: solid 1px; margin-bottom: 12px; padding: 12px;">
+        <a href="{% url 'blogs:update' blog.id %}" style="color: black; font-size: large;">{{ blog.title }}</a>
+        <p>Content: {{ blog.content }}</p>
+        <p>Author: {{ blog.author }}</p>
+        <a href="{% url 'blogs:delete' blog.id %}">Delete This Blog</a>
+    </div>
+    {% endfor %}
+
+</body>
+
+</html>
